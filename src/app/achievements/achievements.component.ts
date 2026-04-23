@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
 
 interface Achievement { icon: string; color: string; title: string; desc: string; }
 
 @Component({
   selector: 'app-achievements',
   standalone: true,
-  imports: [NgFor],
   template: `
     <section id="achievements" class="section achievements-section">
       <div class="container">
@@ -15,15 +13,17 @@ interface Achievement { icon: string; color: string; title: string; desc: string
           <h2 class="section-title">Milestones &amp; Awards</h2>
         </div>
         <div class="achievements-list">
-          <div class="achievement-card card" *ngFor="let item of items">
-            <div class="ach-icon" [style.color]="item.color" [style.background]="item.color + '1a'">
-              <i [class]="item.icon"></i>
+          @for (item of items; track item.title) {
+            <div class="achievement-card card">
+              <div class="ach-icon" [style.color]="item.color" [style.background]="item.color + '1a'">
+                <i [class]="item.icon"></i>
+              </div>
+              <div class="ach-content">
+                <h4>{{ item.title }}</h4>
+                <p>{{ item.desc }}</p>
+              </div>
             </div>
-            <div class="ach-content">
-              <h4>{{ item.title }}</h4>
-              <p>{{ item.desc }}</p>
-            </div>
-          </div>
+          }
         </div>
       </div>
     </section>

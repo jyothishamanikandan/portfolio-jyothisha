@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
 
 interface ContactLink { icon: string; label: string; value: string; href: string | null; }
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [NgFor, NgIf],
   template: `
     <section id="contact" class="section contact-section">
       <div class="container">
@@ -25,14 +23,19 @@ interface ContactLink { icon: string; label: string; value: string; href: string
               — my inbox is always open!
             </p>
             <div class="contact-links">
-              <div class="contact-item" *ngFor="let link of contactLinks">
-                <div class="contact-icon"><i [class]="link.icon"></i></div>
-                <div class="contact-detail">
-                  <span class="contact-label">{{ link.label }}</span>
-                  <a *ngIf="link.href" [href]="link.href" class="contact-value">{{ link.value }}</a>
-                  <span *ngIf="!link.href" class="contact-value">{{ link.value }}</span>
+              @for (link of contactLinks; track link.label) {
+                <div class="contact-item">
+                  <div class="contact-icon"><i [class]="link.icon"></i></div>
+                  <div class="contact-detail">
+                    <span class="contact-label">{{ link.label }}</span>
+                    @if (link.href) {
+                      <a [href]="link.href" class="contact-value">{{ link.value }}</a>
+                    } @else {
+                      <span class="contact-value">{{ link.value }}</span>
+                    }
+                  </div>
                 </div>
-              </div>
+              }
             </div>
           </div>
           <div class="contact-cta card">
@@ -43,10 +46,10 @@ interface ContactLink { icon: string; label: string; value: string; href: string
               <i class="fas fa-envelope"></i> Send a Message
             </a>
             <div class="social-row">
-              <a href="https://github.com" target="_blank" rel="noopener" class="social-btn">
+              <a href="https://github.com/jyothishamanikandan" target="_blank" rel="noopener" class="social-btn">
                 <i class="fab fa-github"></i>
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn">
+              <a href="https://www.linkedin.com/in/jyothisha-m-61a262202/" target="_blank" rel="noopener" class="social-btn">
                 <i class="fab fa-linkedin-in"></i>
               </a>
             </div>
@@ -94,7 +97,7 @@ export class ContactComponent {
     { icon: 'fas fa-envelope', label: 'Email', value: 'Jyothishamanikandan@gmail.com', href: 'mailto:Jyothishamanikandan@gmail.com' },
     { icon: 'fas fa-phone', label: 'Phone', value: '+971 503870890', href: 'tel:+971503870890' },
     { icon: 'fas fa-map-marker-alt', label: 'Location', value: 'Dubai, United Arab Emirates', href: null },
-    { icon: 'fab fa-linkedin-in', label: 'LinkedIn', value: 'linkedin.com/in/jyothisha', href: 'https://linkedin.com' },
-    { icon: 'fab fa-github', label: 'GitHub', value: 'github.com/jyothisha', href: 'https://github.com' },
+    { icon: 'fab fa-linkedin-in', label: 'LinkedIn', value: 'linkedin.com/in/jyothisha-m-61a262202', href: 'https://www.linkedin.com/in/jyothisha-m-61a262202/' },
+    { icon: 'fab fa-github', label: 'GitHub', value: 'github.com/jyothishamanikandan', href: 'https://github.com/jyothishamanikandan' },
   ];
 }

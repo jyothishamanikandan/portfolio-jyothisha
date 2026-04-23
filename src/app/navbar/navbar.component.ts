@@ -1,10 +1,8 @@
 import { Component, HostListener, signal } from '@angular/core';
-import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NgFor],
   template: `
     <nav class="navbar" [class.scrolled]="scrolled()">
       <div class="container nav-inner">
@@ -12,9 +10,9 @@ import { NgFor } from '@angular/common';
           <span class="logo-bracket">&lt;</span>JM<span class="logo-bracket">/&gt;</span>
         </a>
         <ul class="nav-links" [class.open]="menuOpen()">
-          <li *ngFor="let link of navLinks">
-            <a [href]="link.href" (click)="closeMenu()">{{ link.label }}</a>
-          </li>
+          @for (link of navLinks; track link.href) {
+            <li><a [href]="link.href" (click)="closeMenu()">{{ link.label }}</a></li>
+          }
         </ul>
         <a href="mailto:Jyothishamanikandan@gmail.com" class="btn-primary nav-cta">Hire Me</a>
         <button class="hamburger" aria-label="Menu" [class.open]="menuOpen()" (click)="toggleMenu()">

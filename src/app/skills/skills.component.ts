@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
 
 interface Skill { name: string; level: number; }
 interface SkillGroup { category: string; icon: string; skills: Skill[]; }
@@ -7,7 +6,6 @@ interface SkillGroup { category: string; icon: string; skills: Skill[]; }
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [NgFor],
   template: `
     <section id="skills" class="section skills-section">
       <div class="container">
@@ -17,28 +15,34 @@ interface SkillGroup { category: string; icon: string; skills: Skill[]; }
           <p class="section-subtitle">Technologies I've worked with across enterprise-scale projects</p>
         </div>
         <div class="skills-grid">
-          <div class="skill-card card" *ngFor="let group of skillGroups">
-            <div class="skill-card-header">
-              <div class="skill-icon"><i [class]="group.icon"></i></div>
-              <h3>{{ group.category }}</h3>
-            </div>
-            <div class="skill-list">
-              <div class="skill-item" *ngFor="let skill of group.skills">
-                <div class="skill-meta">
-                  <span class="skill-name">{{ skill.name }}</span>
-                  <span class="skill-pct">{{ skill.level }}%</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-fill" [style.width.%]="skill.level"></div>
-                </div>
+          @for (group of skillGroups; track group.category) {
+            <div class="skill-card card">
+              <div class="skill-card-header">
+                <div class="skill-icon"><i [class]="group.icon"></i></div>
+                <h3>{{ group.category }}</h3>
+              </div>
+              <div class="skill-list">
+                @for (skill of group.skills; track skill.name) {
+                  <div class="skill-item">
+                    <div class="skill-meta">
+                      <span class="skill-name">{{ skill.name }}</span>
+                      <span class="skill-pct">{{ skill.level }}%</span>
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-fill" [style.width.%]="skill.level"></div>
+                    </div>
+                  </div>
+                }
               </div>
             </div>
-          </div>
+          }
         </div>
         <div class="tech-tags">
           <h3>All Technologies</h3>
           <div class="tags-list">
-            <span class="tech-tag" *ngFor="let tag of techTags">{{ tag }}</span>
+            @for (tag of techTags; track tag) {
+              <span class="tech-tag">{{ tag }}</span>
+            }
           </div>
         </div>
       </div>

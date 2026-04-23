@@ -45,8 +45,8 @@ import { Component, OnInit, OnDestroy, signal } from '@angular/core';
           <div class="hero-social">
             <a href="mailto:Jyothishamanikandan@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
             <a href="tel:+971503870890" title="Phone"><i class="fas fa-phone"></i></a>
-            <a href="https://github.com" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/jyothishamanikandan" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/jyothisha-m-61a262202/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
         <div class="hero-visual">
