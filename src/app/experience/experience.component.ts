@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
 
 interface Job {
   company: string;
@@ -14,7 +13,6 @@ interface Job {
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [NgFor, NgIf],
   template: `
     <section id="experience" class="section experience-section">
       <div class="container">
@@ -24,30 +22,38 @@ interface Job {
           <p class="section-subtitle">4.5+ years building enterprise web applications</p>
         </div>
         <div class="timeline">
-          <div class="timeline-item" *ngFor="let job of jobs">
-            <div class="timeline-dot" [class.current]="job.current"></div>
-            <div class="job-card card">
-              <div class="job-header">
-                <div class="job-main">
-                  <div class="job-company-row">
-                    <span class="job-company">{{ job.company }}</span>
-                    <span class="current-badge" *ngIf="job.current">Current</span>
+          @for (job of jobs; track job.company) {
+            <div class="timeline-item">
+              <div class="timeline-dot" [class.current]="job.current"></div>
+              <div class="job-card card">
+                <div class="job-header">
+                  <div class="job-main">
+                    <div class="job-company-row">
+                      <span class="job-company">{{ job.company }}</span>
+                      @if (job.current) {
+                        <span class="current-badge">Current</span>
+                      }
+                    </div>
+                    <span class="job-role">{{ job.role }}</span>
                   </div>
-                  <span class="job-role">{{ job.role }}</span>
+                  <div class="job-meta">
+                    <span><i class="fas fa-calendar-alt"></i> {{ job.period }}</span>
+                    <span><i class="fas fa-map-marker-alt"></i> {{ job.location }}</span>
+                  </div>
                 </div>
-                <div class="job-meta">
-                  <span><i class="fas fa-calendar-alt"></i> {{ job.period }}</span>
-                  <span><i class="fas fa-map-marker-alt"></i> {{ job.location }}</span>
+                <div class="job-tech">
+                  @for (t of job.tech; track t) {
+                    <span class="tech-pill">{{ t }}</span>
+                  }
                 </div>
+                <ul class="job-highlights">
+                  @for (h of job.highlights; track h) {
+                    <li>{{ h }}</li>
+                  }
+                </ul>
               </div>
-              <div class="job-tech">
-                <span class="tech-pill" *ngFor="let t of job.tech">{{ t }}</span>
-              </div>
-              <ul class="job-highlights">
-                <li *ngFor="let h of job.highlights">{{ h }}</li>
-              </ul>
             </div>
-          </div>
+          }
         </div>
       </div>
     </section>

@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
 
 interface Cert { name: string; platform: string; icon: string; }
 
 @Component({
   selector: 'app-certifications',
   standalone: true,
-  imports: [NgFor],
   template: `
     <section id="certifications" class="section certs-section">
       <div class="container">
@@ -16,13 +14,15 @@ interface Cert { name: string; platform: string; icon: string; }
           <p class="section-subtitle">Professional development courses completed on Udemy</p>
         </div>
         <div class="certs-grid">
-          <div class="cert-card card" *ngFor="let cert of certs">
-            <div class="cert-icon"><i [class]="cert.icon"></i></div>
-            <div class="cert-info">
-              <h4>{{ cert.name }}</h4>
-              <span class="cert-platform"><i class="fas fa-certificate"></i> {{ cert.platform }}</span>
+          @for (cert of certs; track cert.name) {
+            <div class="cert-card card">
+              <div class="cert-icon"><i [class]="cert.icon"></i></div>
+              <div class="cert-info">
+                <h4>{{ cert.name }}</h4>
+                <span class="cert-platform"><i class="fas fa-certificate"></i> {{ cert.platform }}</span>
+              </div>
             </div>
-          </div>
+          }
         </div>
       </div>
     </section>
