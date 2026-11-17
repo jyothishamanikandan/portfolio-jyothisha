@@ -125,56 +125,130 @@ interface Job {
   `],
 })
 export class ExperienceComponent {
-  jobs: Job[] = [
-    {
-      company: 'Geo Chem Middle East LLC',
-      role: 'Software Developer',
-      period: 'June 2025 – Present',
-      location: 'Dubai, UAE',
-      current: true,
-      tech: ['Angular 20+', 'TypeScript', 'Apollo GraphQL', 'NgRx', 'JWT', 'Bootstrap 5', 'Signals'],
-      highlights: [
-        'Architected and delivered an enterprise-scale LIMS serving 10+ end-to-end workflows using Angular 20+, TypeScript, and Apollo GraphQL.',
-        'Engineered 10+ laboratory workflows — from client onboarding and quotation creation through sample scheduling, accessioning, lab assignment, and report generation.',
-        'Built a reusable component library (loaders, modals, error handlers) and data-intensive tables with sorting, filtering, and pagination using Bootstrap 5.',
-        'Designed highly complex reactive forms with deeply nested dynamic structures for quotations, sample metadata, and test configurations.',
-        'Achieved high-performance UI rendering in data-heavy workflows by implementing Angular Signals, OnPush change detection, and Zoneless architecture.',
-        'Implemented enterprise-grade security with JWT authentication, token auto-refresh, inactivity logout, and role-based access control.',
-        'Authored comprehensive technical documentation covering architecture, component APIs, and workflows.',
-        'Led stakeholder discussions to translate complex laboratory and regulatory requirements into a modular, scalable frontend architecture.',
-      ],
-    },
-    {
-      company: 'Zycus Infotech Private Limited',
-      role: 'Software Developer',
-      period: 'June 2022 – June 2025',
-      location: 'Bengaluru, India',
-      current: false,
-      tech: ['Angular', 'TypeScript', 'NgRx', 'RESTful APIs', 'Jasmine', 'Karma', 'SCSS'],
-      highlights: [
-        'Developed, enhanced, and maintained responsive Angular web applications, improving page load time by 20% and user engagement by 15%.',
-        'Collaborated with UI/UX designers and backend teams to deliver functional and aesthetic user interfaces.',
-        'Implemented unit testing (Jasmine/Karma) and code reviews, reducing bugs by 30% and improving code quality.',
-        'Actively contributed to Agile/Scrum processes (sprint planning, daily stand-ups, retrospectives) for on-time feature delivery.',
-        'Built and maintained a scalable Angular library for multiple products, ensuring code reuse and faster deployments.',
-        'Designed and implemented an application management & registration system for seamless app lifecycle management.',
-        'Created a custom automation dashboard to track QA reports, enabling real-time insights and improved testing efficiency.',
-        'Led Angular version migration, addressing compatibility issues, updating dependencies, and applying best practices for performance.',
-      ],
-    },
-    {
-      company: 'Expeed Software Private Limited',
-      role: 'Associate Software Developer',
-      period: 'September 2021 – June 2022',
-      location: 'Kochi, India',
-      current: false,
-      tech: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'JavaScript'],
-      highlights: [
-        'Assisted in the development and maintenance of Angular-based web applications, gaining hands-on experience building responsive and user-friendly interfaces.',
-        'Collaborated with senior developers to implement new features and troubleshoot issues.',
-        'Participated in code reviews and quality assurance processes, ensuring adherence to best practices.',
-        'Supported the design and implementation of user interfaces, translating design mockups into functional web elements.',
-      ],
-    },
-  ];
+
+jobs: Job[] = [
+  {
+    company: 'Geo Chem Middle East LLC',
+    role: 'Software Developer (AI-Native Full Stack Developer)',
+    period: 'June 2025 – Present',
+    location: 'Dubai, UAE',
+    current: true,
+
+    tech: [
+      'Angular',
+      'TypeScript',
+      'Python',
+      'FastAPI',
+      'REST APIs',
+      'LLMs',
+      'RAG',
+      'Vector Search',
+      'AI Agents',
+      'Microsoft Azure',
+      'Docker',
+      'Git',
+      'CI/CD'
+    ],
+
+    highlights: [
+      'Architected and developed an enterprise Laboratory Information Management System (LIMS) supporting multiple end-to-end laboratory workflows using Angular, TypeScript, and modern application architecture.',
+
+      'Developed full-stack application features integrating frontend components, backend REST APIs, business logic, and database operations.',
+
+      'Built reusable UI components, dynamic forms, data-intensive tables, and responsive interfaces to streamline laboratory operations.',
+
+      'Designed and integrated REST API services using Python and FastAPI to support business workflows, data processing, and application integrations.',
+
+      'Explored LLM-powered capabilities to enable intelligent document processing, contextual information retrieval, and automated workflows using RAG and vector search.',
+
+      'Implemented AI-powered application features using LLM APIs, prompt engineering, embeddings, and AI agent workflows.',
+
+      'Applied performance optimisation, authentication, JWT-based security, and role-based access control to improve application reliability and security.',
+
+      'Leveraged Microsoft Azure, Docker, Git, and CI/CD practices to support scalable application deployment and maintenance.',
+
+      'Collaborated with stakeholders to translate business requirements into scalable full-stack solutions and technical documentation.',
+
+      'Leveraged AI-assisted development tools, including ChatGPT, Claude, and Cursor, for code generation, debugging, refactoring, test case creation, technical documentation, and development optimisation.',
+
+      'Used AI-assisted workflows to accelerate feature development, troubleshoot complex issues, improve code quality, and reduce repetitive development tasks.'
+    ]
+  },
+
+  {
+    company: 'Zycus Infotech Private Limited',
+    role: 'Software Developer (AI-Native Full Stack Developer)',
+    period: 'June 2022 – June 2025',
+    location: 'Bengaluru, India',
+    current: false,
+
+    tech: [
+      'Angular',
+      'React.js',
+      'TypeScript',
+      'Python',
+      'FastAPI',
+      'REST APIs',
+      'GitHub Actions',
+      'Bitbucket Pipelines',
+      'Jasmine',
+      'Karma',
+      'Git',
+      'CI/CD'
+    ],
+
+    highlights: [
+      'Developed scalable full-stack web applications using Angular, React.js, TypeScript, Python, and FastAPI, building reusable components and backend services.',
+
+      'Designed and developed RESTful APIs using Python and FastAPI to support application workflows, business logic, data processing, and frontend integration.',
+
+      'Implemented backend services, database operations, API integrations, and application-level authentication to support scalable application architecture.',
+
+      'Led Angular version migrations, resolving compatibility issues, updating dependencies, and optimising application performance.',
+
+      'Developed application management and registration systems to streamline application lifecycle management and issue diagnostics.',
+
+      'Built a QA automation dashboard providing test report tracking, real-time insights, and improved release visibility.',
+
+      'Integrated frontend applications with backend APIs, implementing dynamic data fetching, state management, and responsive user interfaces.',
+
+      'Implemented unit testing, API validation, debugging, and code reviews to improve software quality and maintainability.',
+
+      'Leveraged AI-assisted development tools such as ChatGPT, Claude, and Cursor for code generation, debugging, refactoring, test creation, and development optimisation.',
+
+      'Improved application performance through lazy loading, change detection optimisation, and efficient API communication.',
+
+      'Configured CI/CD pipelines using GitHub Actions and Bitbucket Pipelines to automate builds, testing, and deployments.',
+
+      'Collaborated with cross-functional teams to deliver scalable application solutions within Agile/Scrum environments.'
+    ]
+  },
+
+  {
+    company: 'Expeed Software Private Limited',
+    role: 'Associate Software Developer',
+    period: 'September 2021 – June 2022',
+    location: 'Kochi, India',
+    current: false,
+
+    tech: [
+      'Angular',
+      'TypeScript',
+      'JavaScript',
+      'HTML5',
+      'CSS3'
+    ],
+
+    highlights: [
+      'Assisted in the development and maintenance of Angular-based web applications, gaining hands-on experience building responsive and user-friendly interfaces.',
+
+      'Collaborated with senior developers to implement new features and troubleshoot issues.',
+
+      'Participated in code reviews and quality assurance processes, ensuring adherence to best practices.',
+
+      'Supported the design and implementation of user interfaces, translating design mockups into functional web elements.'
+    ]
+  }
+];
+
 }
